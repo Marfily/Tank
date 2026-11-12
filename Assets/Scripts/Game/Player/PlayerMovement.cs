@@ -1,16 +1,35 @@
+
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float moveSpeed = 5f;
+    public float rotationSpeed = 120f;
+
+    private Rigidbody2D rb;
+
+    private float moveInput;
+    private float turnInput;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        moveInput = Input.GetAxisRaw("Vertical");
+        turnInput = Input.GetAxisRaw("Horizontal");
+    }
+
+    void FixedUpdate()
+    {
+        // Rotate the tank
+        float rotation = -turnInput * rotationSpeed * Time.fixedDeltaTime;
+
+        rb.MoveRotation(rb.rotation + rotation);
+
+        // Move forward or backward
+        rb.linearVelocity = (Vector2)transform.up * moveInput * moveSpeed;
     }
 }
