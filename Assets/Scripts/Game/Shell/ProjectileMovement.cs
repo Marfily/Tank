@@ -4,6 +4,7 @@ using UnityEngine;
 public class ProjectileMovement : MonoBehaviour
 {
     public float projectileSpeed = 15f;
+    public float projectileDamage = 25f;
     public float lifetime = 5f;
 
     private Rigidbody2D rb;
@@ -18,7 +19,8 @@ public class ProjectileMovement : MonoBehaviour
     {
         owner = shooter;
 
-        rb.linearVelocity = (Vector2)transform.up * projectileSpeed;
+        rb.linearVelocity =
+            (Vector2)transform.up * projectileSpeed;
     }
 
     void Start()
@@ -30,6 +32,14 @@ public class ProjectileMovement : MonoBehaviour
     {
         if (other.transform.root == owner)
             return;
+
+        TankHealth target =
+            other.GetComponentInParent<TankHealth>();
+
+        if (target != null)
+        {
+            target.TakeDamage(projectileDamage);
+        }
 
         Destroy(gameObject);
     }
