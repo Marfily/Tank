@@ -7,6 +7,8 @@ public class ProjectileMovement : MonoBehaviour
     public float projectileDamage = 25f;
     public float lifetime = 5f;
 
+    public GameObject impactEffect;
+
     private Rigidbody2D rb;
     private Transform owner;
 
@@ -18,9 +20,7 @@ public class ProjectileMovement : MonoBehaviour
     public void Initialize(Transform shooter)
     {
         owner = shooter;
-
-        rb.linearVelocity =
-            (Vector2)transform.up * projectileSpeed;
+        rb.linearVelocity = (Vector2)transform.up * projectileSpeed;
     }
 
     void Start()
@@ -39,6 +39,18 @@ public class ProjectileMovement : MonoBehaviour
         if (target != null)
         {
             target.TakeDamage(projectileDamage);
+        }
+
+        if (impactEffect != null)
+        {
+            Vector2 impactPosition =
+                other.ClosestPoint(transform.position);
+
+            Instantiate(
+                impactEffect,
+                impactPosition,
+                Quaternion.identity
+            );
         }
 
         Destroy(gameObject);

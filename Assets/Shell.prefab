@@ -173,3 +173,4 @@ MonoBehaviour:
   projectileSpeed: 15
   projectileDamage: 25
   lifetime: 5
+  impactEffect: {fileID: 4422318894729932421, guid: 36446acca8897aa4fa2b0b7d7b07ee2b, type: 3}
