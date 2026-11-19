@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class TurretAim : MonoBehaviour
 {
+    public float rotationSpeed = 90f;
+
     private Camera mainCamera;
 
     void Start()
@@ -13,7 +15,6 @@ public class TurretAim : MonoBehaviour
     void Update()
     {
         Vector3 mousePosition = Input.mousePosition;
-
         mousePosition.z = -mainCamera.transform.position.z;
 
         Vector3 mouseWorldPosition =
@@ -22,11 +23,17 @@ public class TurretAim : MonoBehaviour
         Vector2 aimDirection =
             mouseWorldPosition - transform.position;
 
-        float angle = Mathf.Atan2(
+        float targetAngle = Mathf.Atan2(
             aimDirection.y,
             aimDirection.x
         ) * Mathf.Rad2Deg - 90f;
 
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        float newAngle = Mathf.MoveTowardsAngle(
+            transform.eulerAngles.z,
+            targetAngle,
+            rotationSpeed * Time.deltaTime
+        );
+
+        transform.rotation = Quaternion.Euler(0f, 0f, newAngle);
     }
 }
