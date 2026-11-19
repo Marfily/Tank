@@ -219,6 +219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -323,6 +327,10 @@ PrefabInstance:
     - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
       propertyPath: m_Name
       value: Tree (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -431,7 +439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 175749438}
   - component: {fileID: 175749439}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: download-removebg-preview_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 293153758}
   - component: {fileID: 293153759}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: XW70DZfETpyizO7akw7AuDN-rQ9wHtfJC2SVZ5Ho4Z7az1HZf0XNLo-rpgucGSYr2yGAhC9K9MBMG_4j95mFCre2XK4xxpCPZrw7fzemBhcsRosfEsqCXCq2uczPcAoRh1p-Yp2Y6Buw2GLRC7VHPkySOBfoM3GlKO8VFShdAManl348Gtwto8Fnfbvwg3vk-remov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,6 +929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1025,6 +1037,10 @@ PrefabInstance:
     - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
       propertyPath: m_Name
       value: Tree (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1231,10 +1247,18 @@ MonoBehaviour:
   player: {fileID: 486318896}
   turret: {fileID: 476879982}
   firePoint: {fileID: 1449628520}
-  detectionRange: 12
-  stoppingDistance: 5
+  detectionRange: 20
+  stoppingDistance: 7
   moveSpeed: 2
   hullRotationSpeed: 70
+  sensorLength: 2
+  sensorOriginOffset: 0.8
+  sensorAngle: 35
+  avoidanceAngle: 60
+  avoidanceDuration: 1.2
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 8
   rotationSpeed: 60
   shootingAngle: 5
   reloadTime: 6
@@ -1250,7 +1274,7 @@ GameObject:
   - component: {fileID: 427867307}
   - component: {fileID: 427867306}
   - component: {fileID: 427867305}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1916,7 +1940,7 @@ GameObject:
   - component: {fileID: 582906343}
   - component: {fileID: 582906342}
   - component: {fileID: 582906341}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2161,7 +2185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 648652499}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rockvisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2229,7 +2253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660870573}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rockvisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2263,7 +2287,7 @@ GameObject:
   - component: {fileID: 672227737}
   - component: {fileID: 672227736}
   - component: {fileID: 672227735}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2401,7 +2425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 683080397}
   - component: {fileID: 683080398}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: XW70DZfETpyizO7akw7AuDN-rQ9wHtfJC2SVZ5Ho4Z7az1HZf0XNLo-rpgucGSYr2yGAhC9K9MBMG_4j95mFCre2XK4xxpCPZrw7fzemBhcsRosfEsqCXCq2uczPcAoRh1p-Yp2Y6Buw2GLRC7VHPkySOBfoM3GlKO8VFShdAManl348Gtwto8Fnfbvwg3vk-remov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2493,7 +2517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690374970}
   - component: {fileID: 690374971}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: download-removebg-preview_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2773,6 +2797,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock
       objectReference: {fileID: 0}
+    - target: {fileID: 3277000776953660352, guid: 43489ba62ddb79244bd1639c96edb15f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8127954251780946300, guid: 43489ba62ddb79244bd1639c96edb15f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.97207034
@@ -2855,7 +2883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 806377500}
   - component: {fileID: 806377501}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: download-removebg-preview_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3129,6 +3157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3233,7 +3265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 949745898}
   - component: {fileID: 949745899}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: XW70DZfETpyizO7akw7AuDN-rQ9wHtfJC2SVZ5Ho4Z7az1HZf0XNLo-rpgucGSYr2yGAhC9K9MBMG_4j95mFCre2XK4xxpCPZrw7fzemBhcsRosfEsqCXCq2uczPcAoRh1p-Yp2Y6Buw2GLRC7VHPkySOBfoM3GlKO8VFShdAManl348Gtwto8Fnfbvwg3vk-remov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3415,6 +3447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3430,7 +3466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1050753241}
   - component: {fileID: 1050753242}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: XW70DZfETpyizO7akw7AuDN-rQ9wHtfJC2SVZ5Ho4Z7az1HZf0XNLo-rpgucGSYr2yGAhC9K9MBMG_4j95mFCre2XK4xxpCPZrw7fzemBhcsRosfEsqCXCq2uczPcAoRh1p-Yp2Y6Buw2GLRC7VHPkySOBfoM3GlKO8VFShdAManl348Gtwto8Fnfbvwg3vk-remov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3524,6 +3560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3277000776953660352, guid: 43489ba62ddb79244bd1639c96edb15f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8127954251780946300, guid: 43489ba62ddb79244bd1639c96edb15f, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.7624607
@@ -3605,7 +3645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1181946854}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rockvisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3821,7 +3861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1344772425}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rockvisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4019,6 +4059,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4064,7 +4108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1503314774}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rockvisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4290,6 +4334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4305,7 +4353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582589120}
   - component: {fileID: 1582589121}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: download-removebg-preview_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4491,6 +4539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3277000776953660352, guid: 43489ba62ddb79244bd1639c96edb15f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8127954251780946300, guid: 43489ba62ddb79244bd1639c96edb15f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.85249597
@@ -4589,8 +4641,8 @@ Transform:
   m_GameObject: {fileID: 1684391058}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70806587, w: 0.7061465}
-  m_LocalPosition: {x: -0.06, y: 0.34, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.029, y: -0.005, z: 0}
+  m_LocalScale: {x: 0.21646816, y: 0.25416964, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 181155365}
@@ -4644,7 +4696,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 76ac87970a1a25e4fa6ae9d70fd49aa3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 377a24ae9d2b7764da5143a2315bd8d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4666,7 +4718,7 @@ GameObject:
   - component: {fileID: 1687520695}
   - component: {fileID: 1687520694}
   - component: {fileID: 1687520693}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4805,6 +4857,10 @@ PrefabInstance:
     - target: {fileID: 3277000776953660352, guid: 43489ba62ddb79244bd1639c96edb15f, type: 3}
       propertyPath: m_Name
       value: Rock (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277000776953660352, guid: 43489ba62ddb79244bd1639c96edb15f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8127954251780946300, guid: 43489ba62ddb79244bd1639c96edb15f, type: 3}
       propertyPath: m_LocalScale.x
@@ -5030,7 +5086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2000862525}
   - component: {fileID: 2000862526}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: XW70DZfETpyizO7akw7AuDN-rQ9wHtfJC2SVZ5Ho4Z7az1HZf0XNLo-rpgucGSYr2yGAhC9K9MBMG_4j95mFCre2XK4xxpCPZrw7fzemBhcsRosfEsqCXCq2uczPcAoRh1p-Yp2Y6Buw2GLRC7VHPkySOBfoM3GlKO8VFShdAManl348Gtwto8Fnfbvwg3vk-remov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5138,8 +5194,8 @@ Transform:
   m_GameObject: {fileID: 2004542674}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7068212, w: 0.7073922}
-  m_LocalPosition: {x: -0.03, y: -0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.0252, z: 0}
+  m_LocalScale: {x: 0.24614803, y: 0.26751396, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 399450376}
@@ -5193,7 +5249,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: a11a3c21a9a24d34aa2ae6f739a0a706, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b4089af967e185344b3fcd141228bfcc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5214,7 +5270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2035730079}
   - component: {fileID: 2035730080}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: download-removebg-preview_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5400,6 +5456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3277000776953660352, guid: 43489ba62ddb79244bd1639c96edb15f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8127954251780946300, guid: 43489ba62ddb79244bd1639c96edb15f, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.8595393
@@ -5551,6 +5611,10 @@ PrefabInstance:
     - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
       propertyPath: m_Name
       value: Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262334650807739469, guid: 28fa5429c7e45224ab24266e5a74f90c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

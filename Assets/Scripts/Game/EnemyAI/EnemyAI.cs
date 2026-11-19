@@ -15,6 +15,17 @@ public class EnemyAI : MonoBehaviour
     public float moveSpeed = 2f;
     public float hullRotationSpeed = 90f;
 
+    [Header("Obstacle Avoidance")]
+    public float sensorLength = 3f;
+    public float sensorOriginOffset = 0.8f;
+    public float sensorAngle = 55f;
+    public float avoidanceAngle = 60f;
+    public float avoidanceDuration = 1.2f;
+    public LayerMask obstacleLayer;
+
+    private float avoidanceTimer = 0f;
+    private Vector2 avoidanceTargetDirection;
+
     [Header("Turret")]
     public float rotationSpeed = 60f;
     public float shootingAngle = 5f;
@@ -66,12 +77,79 @@ public class EnemyAI : MonoBehaviour
             distance <= stoppingDistance)
             return;
 
-        Vector2 direction =
-            (Vector2)player.position - rb.position;
+        Vector2 forward =
+            Quaternion.Euler(0f, 0f, rb.rotation) * Vector2.up;
+
+        Vector2 sensorOrigin =
+            rb.position + forward * sensorOriginOffset;
+
+        RaycastHit2D center = Physics2D.Raycast(
+            sensorOrigin,
+            forward,
+            sensorLength,
+            obstacleLayer
+        );
+
+        Vector2 leftDirection =
+            RotateDirection(forward, sensorAngle);
+
+        Vector2 rightDirection =
+            RotateDirection(forward, -sensorAngle);
+
+        RaycastHit2D left = Physics2D.Raycast(
+            sensorOrigin,
+            leftDirection,
+            sensorLength,
+            obstacleLayer
+        );
+
+        RaycastHit2D right = Physics2D.Raycast(
+            sensorOrigin,
+            rightDirection,
+            sensorLength,
+            obstacleLayer
+        );
+
+        avoidanceTimer -= Time.fixedDeltaTime;
+
+        if (center.collider != null && avoidanceTimer <= 0f)
+        {
+            float leftClearance =
+                left.collider == null ? sensorLength : left.distance;
+
+            float rightClearance =
+                right.collider == null ? sensorLength : right.distance;
+
+            int direction;
+
+            if (leftClearance > rightClearance)
+                direction = 1;
+            else if (rightClearance > leftClearance)
+                direction = -1;
+            else
+                direction = 1;
+
+            avoidanceTargetDirection =
+                RotateDirection(forward, direction * avoidanceAngle);
+
+            avoidanceTimer = avoidanceDuration;
+        }
+
+        Vector2 targetDirection;
+
+        if (avoidanceTimer > 0f)
+        {
+            targetDirection = avoidanceTargetDirection;
+        }
+        else
+        {
+            targetDirection =
+                ((Vector2)player.position - rb.position).normalized;
+        }
 
         float targetAngle = Mathf.Atan2(
-            direction.y,
-            direction.x
+            targetDirection.y,
+            targetDirection.x
         ) * Mathf.Rad2Deg - 90f;
 
         float newAngle = Mathf.MoveTowardsAngle(
@@ -83,11 +161,15 @@ public class EnemyAI : MonoBehaviour
         rb.MoveRotation(newAngle);
 
         Vector2 movement =
-            (Vector2)transform.up *
-            moveSpeed *
-            Time.fixedDeltaTime;
+            (Vector2)(Quaternion.Euler(0f, 0f, newAngle) * Vector3.up)
+            * moveSpeed * Time.fixedDeltaTime;
 
         rb.MovePosition(rb.position + movement);
+    }
+
+    Vector2 RotateDirection(Vector2 direction, float angle)
+    {
+        return Quaternion.Euler(0f, 0f, angle) * direction;
     }
 
     void AimAtPlayer()
@@ -142,5 +224,29 @@ public class EnemyAI : MonoBehaviour
         }
 
         nextFireTime = Time.time + reloadTime;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Vector2 forward = transform.up;
+
+        Vector2 origin =
+            (Vector2)transform.position +
+            forward * sensorOriginOffset;
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(origin, origin + forward * sensorLength);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(
+            origin,
+            origin + RotateDirection(forward, sensorAngle) * sensorLength
+        );
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(
+            origin,
+            origin + RotateDirection(forward, -sensorAngle) * sensorLength
+        );
     }
 }
